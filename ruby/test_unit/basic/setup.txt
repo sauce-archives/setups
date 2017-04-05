@@ -1,0 +1,2 @@
+gem install appium_lib
+gem install test-unit
