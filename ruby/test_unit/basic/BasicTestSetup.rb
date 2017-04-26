@@ -5,7 +5,7 @@ class BasicTestSetup < Test::Unit::TestCase
   def setup
     desired_capabilities = {
         caps:       {
-            testobject_api_key: 'YOUR_API_KEY',
+            testobject_api_key: '989A940F0E6341B4BF83A9141C05F225',
             testobject_device: 'Motorola_Moto_G_2nd_gen_real'
         },
         appium_lib: {
@@ -25,6 +25,8 @@ class BasicTestSetup < Test::Unit::TestCase
   end
 
   def teardown
-    @driver.quit
+    @driver.quit if @driver
+  rescue Selenium::WebDriver::Error::UnknownError => e
+    raise e unless e.message.match /Unable to find session with requested ID/
   end
 end

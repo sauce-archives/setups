@@ -28,6 +28,8 @@ class BasicTestSetup < Test::Unit::TestCase
   end
 
   def teardown
-    @testwatcher.report_results_and_cleanup(passed?)
+    @driver.quit if @driver
+  rescue Selenium::WebDriver::Error::UnknownError => e
+    raise e unless e.message.match /Unable to find session with requested ID/
   end
 end
