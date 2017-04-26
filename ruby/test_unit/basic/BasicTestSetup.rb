@@ -5,7 +5,7 @@ class BasicTestSetup < Test::Unit::TestCase
   def setup
     desired_capabilities = {
         caps:       {
-            testobject_api_key: '989A940F0E6341B4BF83A9141C05F225',
+            testobject_api_key: 'YOUR_API_KEY',
             testobject_device: 'Motorola_Moto_G_2nd_gen_real'
         },
         appium_lib: {
