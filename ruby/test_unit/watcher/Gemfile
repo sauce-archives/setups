@@ -1,0 +1,4 @@
+source "https://www.rubygems.org"
+
+gem "appium_lib"
+gem "test_object_test_result_watcher"
