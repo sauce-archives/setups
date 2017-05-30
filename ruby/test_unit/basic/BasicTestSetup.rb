@@ -2,10 +2,21 @@ require 'appium_lib'
 require 'test/unit'
 
 class BasicTestSetup < Test::Unit::TestCase
+  API_KEY = 'YOUR_API_KEY'
+
+  def api_key
+    if API_KEY == 'YOUR_API_KEY'
+      raise "Please set your API key to run this example (see https://github.com/testobject-sample-scripts/setups/tree/master/ruby/test_unit/watcher)"
+      exit 1
+    else
+      return API_KEY
+    end
+  end
+
   def setup
     desired_capabilities = {
         caps:       {
-            testobject_api_key: 'YOUR_API_KEY',
+            testobject_api_key: api_key,
             testobject_device: 'Motorola_Moto_G_2nd_gen_real'
         },
         appium_lib: {
