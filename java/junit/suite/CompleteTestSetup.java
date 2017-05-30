@@ -9,7 +9,7 @@ public class CompleteTestSetup {
     public TestName testName = new TestName();
 
     @Rule
-    public TestObjectTestResultWatcher resultWatcher = new TestObjectTestResultWatcher();
+    public TestObjectAppiumSuiteWatcher resultWatcher = new TestObjectAppiumSuiteWatcher();
 
     @Before
     public void setUp() throws Exception {
@@ -21,7 +21,7 @@ public class CompleteTestSetup {
 
         driver = new AndroidDriver(new URL("http://appium.testobject.com/wd/hub"), capabilities);
 
-        resultWatcher.setAppiumDriver(driver);
+        resultWatcher.setRemoteWebDriver(driver);
 
     }
 
