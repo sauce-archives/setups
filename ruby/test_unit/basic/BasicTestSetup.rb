@@ -25,6 +25,8 @@ class BasicTestSetup < Test::Unit::TestCase
   end
 
   def teardown
-    @driver.quit
+    @driver.quit if @driver
+  rescue Selenium::WebDriver::Error::UnknownError => e
+    raise e unless e.message.match /Unable to find session with requested ID/
   end
 end
