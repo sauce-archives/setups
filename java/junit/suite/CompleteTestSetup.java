@@ -19,7 +19,7 @@ public class CompleteTestSetup {
         capabilities.setCapability("testobject_api_key", resultWatcher.getApiKey());
         capabilities.setCapability("testobject_test_report_id", resultWatcher.getTestReportId());
 
-        driver = new AndroidDriver(new URL("http://appium.testobject.com/wd/hub"), capabilities);
+        driver = new AndroidDriver(resultWatcher.getTestObjectOrLocalAppiumEndpointURL(), capabilities);
 
         resultWatcher.setRemoteWebDriver(driver);
 

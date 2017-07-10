@@ -2,6 +2,6 @@
     <dependency>
         <groupId>org.testobject</groupId>
         <artifactId>testobject-appium-java-api</artifactId>
-        <version>0.0.26</version>
+        <version>0.1.0</version>
     </dependency>
 </dependencies>
