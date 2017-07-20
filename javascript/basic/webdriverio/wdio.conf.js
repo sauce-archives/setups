@@ -1,12 +1,15 @@
 var config = {
     protocol: 'https',
-    host: 'app.testobject.com',
+    host: 'eu1.appium.testobject.com',
+    //host: 'us1.appium.testobject.com', // your device is located in the US ? , then uncomment this line and remove the previous one.
     port: '443',
-    path: '/api/appium/wd/hub',
+    path: '/wd/hub',
     capabilities: [{
-        testobject_api_key: 'YOUR API KEY',
-        testobject_device: 'Motorola_Moto_G_2nd_gen_real',
-        browserName: 'Chrome'
+        testobject_api_key: 'YOUR_API_KEY',
+        platformName: 'Android',
+        /* supply `platformVersion` without `deviceName` to get any available device with that version dynamically */
+        platformVersion: '7', // Optional
+        deviceName: 'Samsung Galaxy S8' // Optional
     }],
 
     specs: [
@@ -22,8 +25,7 @@ var config = {
     connectionRetryCount: 3,
     framework: 'mocha',
     mochaOpts: {
-        ui: 'bdd',
-        enableTimeouts: false
+        ui: 'bdd'
     }
 }
 

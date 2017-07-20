@@ -1,0 +1,7 @@
+cd to/your/test/directory
+
+npm install -g  wdio-mocha-framework
+npm install -g  selenium-standalone
+npm install -g  webdriverio
+
+npm test

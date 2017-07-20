@@ -1,10 +1,10 @@
+@Listeners({ TestObjectTestNGTestResultWatcher.class })
+public class AppiumDriverCalculatorWatcherTestTestNG implements TestObjectWatcherProvider {
 
-public class BasicTestSetup {
-
-	private AppiumDriver driver;
+	private TestObjectListenerProvider provider = TestObjectListenerProvider.newInstance();
 
 	@BeforeMethod
-	public void setUp() throws Exception {
+	public void beforeTest() throws MalformedURLException {
 
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 
@@ -21,9 +21,12 @@ public class BasicTestSetup {
 		URL EU_endpoint = new URL("https://eu1.appium.testobject.com/wd/hub");
 		URL US_endpoint = new URL("https://us1.appium.testobject.com/wd/hub");
 
-		/*  The driver will take care of establishing the connection, so we must provide
+		/* The driver will take care of establishing the connection, so we must provide
 		*  it with the correct endpoint and the requested capabilities. */
-		driver = new AndroidDriver(EU_endpoint, capabilities);
+		AppiumDriver driver = new AndroidDriver(EU_endpoint, capabilities);
+
+		/* IMPORTANT! We need to provide the Watcher with our initialized AppiumDriver */
+		provider.setDriver(driver);
 
 	}
 
@@ -32,10 +35,12 @@ public class BasicTestSetup {
 		/* Your test. */
 	}
 
-	/* We disable the driver after EACH test has been executed. */
 	@AfterMethod
 	public void tearDown() {
-		driver.quit();
+		provider.getAppiumDriver().quit();
 	}
 
+	public TestObjectListenerProvider getProvider() {
+		return provider;
+	}
 }
