@@ -2,7 +2,7 @@ require 'appium_lib'
 require 'test/unit'
 require 'test_object_test_result_watcher'
 
-class BasicTestSetup < Test::Unit::TestCase
+class WatcherTestSetup < Test::Unit::TestCase
   API_KEY = 'YOUR_API_KEY'
 
   def api_key
@@ -18,7 +18,7 @@ class BasicTestSetup < Test::Unit::TestCase
     desired_capabilities = {
         caps:       {
             testobject_api_key: api_key,
-            platformName: "Android",
+            platformName: 'Android',
             # supply `platformVersion` without `deviceName` to get any available device with that version dynamically
             platformVersion: '7', # Optional
             deviceName: 'Samsung Galaxy S8', # Optional

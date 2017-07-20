@@ -1,7 +1,7 @@
 var config = {
     protocol: 'https',
     host: 'eu1.appium.testobject.com',
-	//host: 'us1.appium.testobject.com', // your device is located in the US ? , then uncomment this line and remove the previous one.
+    //host: 'us1.appium.testobject.com', // your device is located in the US ? , then uncomment this line and remove the previous one.
     port: '443',
     path: '/wd/hub',
     capabilities: [{

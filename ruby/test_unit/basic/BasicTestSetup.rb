@@ -17,7 +17,7 @@ class BasicTestSetup < Test::Unit::TestCase
     desired_capabilities = {
         caps: {
             testobject_api_key: api_key,
-            platformName: "Android",
+            platformName: 'Android',
             # supply `platformVersion` without `deviceName` to get any available device with that version dynamically
             platformVersion: '7', # Optional
             deviceName: 'Samsung Galaxy S8' # Optional
