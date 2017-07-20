@@ -18,11 +18,15 @@ class BasicTestSetup < Test::Unit::TestCase
     desired_capabilities = {
         caps:       {
             testobject_api_key: api_key,
-            testobject_device: 'Motorola_Moto_G_2nd_gen_real',
+            platformName: "Android",
+            # supply `platformVersion` without `deviceName` to get any available device with that version dynamically
+            platformVersion: '7', # Optional
+            deviceName: 'Samsung Galaxy S8', # Optional
             testobject_report_results: true
         },
         appium_lib: {
-            server_url: 'http://appium.testobject.com/wd/hub',
+            server_url: 'https://eu1.appium.testobject.com/wd/hub',
+            #server_url: 'https://us1.appium.testobject.com/wd/hub',  # your device is located in the US ? , then uncomment this line and remove the previous one.
             wait: 10
         }
     }

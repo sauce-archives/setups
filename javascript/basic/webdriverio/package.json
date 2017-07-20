@@ -5,8 +5,8 @@
         "test": "./node_modules/.bin/wdio wdio.conf.js"
     },
     "dependencies": {
-        "webdriverio": "4.0.7",
-        "wdio-mocha-framework": "0.2.13",
-        "selenium-standalone": "5.1.0"
+        "selenium-standalone": "6.5.0",
+        "wdio-mocha-framework": "0.5.10",
+        "webdriverio": "4.8.0"
     }
 }

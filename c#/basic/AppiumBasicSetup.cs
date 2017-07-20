@@ -15,11 +15,24 @@ namespace AppiumBasicSetup
         public void SetUp()
         {
             DesiredCapabilities capabilities = new DesiredCapabilities();
-            capabilities.SetCapability("testobject_api_key", "YOUR API KEY");
-            capabilities.SetCapability("testobject_device", "Samsung_Galaxy_S6_real");
-            Uri server = new Uri("http://appium.testobject.com/wd/hub");
+
+            /*  1. Choose your project */
+            capabilities.setCapability("testobject_api_key", "YOUR_API_KEY");
+
+            /*  2. Select your testing device:
+            *   Specify a `platformVersion` without `deviceName` to get any available device with that platform version.
+            *   Not selecting a device at all is also a valid choice, we will select it carefully for you */
+            capabilities.setCapability("platformVersion", "7"); // Optional
+            capabilities.setCapability("deviceName", "Samsung Galaxy S8"); // Optional
             
-            driver = new AndroidDriver<AppiumWebElement>(server, capabilities);
+            /*  3. Where is your device located? */
+            Uri EU_endpoint = new Uri("https://eu1.appium.testobject.com/wd/hub");
+            Uri US_endpoint = new Uri("https://us1.appium.testobject.com/wd/hub");
+
+			/*  The driver will take care of establishing the connection, so we must provide
+            *  it with the correct endpoint and the requested capabilities. */
+            driver = new AndroidDriver<AppiumWebElement>(EU_endpoint, capabilities);
+
         }
         
         [Test()]
