@@ -16,11 +16,14 @@ class TestClass(unittest.TestCase):
 		#   Not selecting a device at all is also a valid choice, we will select it carefully for you
 		desired_capabilities['platformVersion'] = '7'  # Optional
 		desired_capabilities['deviceName'] = 'Samsung Galaxy S8'  # Optional
+
+		# 3. Where is your selected device located?
+		EU_endpoint = 'http://eu1.appium.testobject.com/wd/hub'
+		US_endpoint = 'http://us1.appium.testobject.com/wd/hub'
 		
 		# The driver will take care of establishing the connection, so we must provide
 		# it with the correct endpoint and the requested capabilities.
-		endpoint = 'http://appium.testobject.com:80/api/appium/wd/hub'
-		self.driver = webdriver.Remote(endpoint, desired_capabilities)
+		self.driver = webdriver.Remote(EU_endpoint, desired_capabilities)
 
 
 	# All test methods starts with the word "test_"
