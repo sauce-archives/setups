@@ -3,6 +3,7 @@ using System;
 using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Appium;
+using System.Net;
 
 namespace AppiumBasicSetup
 {
@@ -14,6 +15,7 @@ namespace AppiumBasicSetup
 		[SetUp()]
 		public void SetUp()
 		{
+			ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
 			DesiredCapabilities capabilities = new DesiredCapabilities();
 
 			/*  1. Choose your project */
